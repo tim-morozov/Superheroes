@@ -16,15 +16,16 @@ namespace Superheroes.Controllers
             _context = context;
         }
         // GET: Superhero
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
 
         // GET: Superhero/Details/5
-        public ActionResult Details(int id)
+        public IActionResult Details(int id)
         {
-            return View();
+            var super = _context.Superheroes.Where(s => s.Id == id);
+            return View(super);
         }
 
         // GET: Superhero/Create
