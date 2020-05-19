@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Superheroes.Models.Superhero>
+﻿@model List<Superhero>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,30 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AlterEgo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrimaryAbility)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SecondaryAbility)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CatchPhrase)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@foreach(var super in Model)
+{
+    <a asp-action="Details">@super.Name</a> <br />
 }
-    </tbody>
-</table>
