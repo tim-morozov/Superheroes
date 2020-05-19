@@ -58,19 +58,19 @@ namespace Superheroes.Controllers
         // GET: Superhero/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var super = _context.Superheroes.Where(s => s.Id == id).SingleOrDefault();
+            return View(super);
         }
 
         // POST: Superhero/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Superhero superhero)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
+                _context.Superheroes.Update(superhero);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
             }
             catch
             {
