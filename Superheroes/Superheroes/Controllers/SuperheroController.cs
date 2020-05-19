@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Superheroes.Data;
+using Superheroes.Models;
 
 namespace Superheroes.Controllers
 {
@@ -18,7 +19,8 @@ namespace Superheroes.Controllers
         // GET: Superhero
         public IActionResult Index()
         {
-            return View();
+            List<Superhero> superheroes = _context.Superheroes.Select(s => s).ToList();
+            return View(superheroes);
         }
 
         // GET: Superhero/Details/5
