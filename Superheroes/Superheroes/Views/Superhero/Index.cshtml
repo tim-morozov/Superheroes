@@ -11,5 +11,5 @@
 </p>
 @foreach(var super in Model)
 {
-    <a asp-action="Details">@super.Name</a> <br />
+    <a asp-action="Details" asp-route-id="@super.Id">@super.Name</a> <br />
 }
