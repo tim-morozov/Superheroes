@@ -9,7 +9,13 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-@foreach(var super in Model)
+
+@foreach (var super in Model)
 {
-    <a asp-action="Details" asp-route-id="@super.Id">@super.Name</a> <br />
+    <p>
+    <a asp-action="Details" asp-route-id="@super.Id">@super.Name</a>
+    <a asp-action="Edit" asp-route-id="@super.Id">Edit</a> |
+    <a asp-action="Delete" asp-route-id="@super.Id">Delete</a> <br />
+     </p>
+
 }
