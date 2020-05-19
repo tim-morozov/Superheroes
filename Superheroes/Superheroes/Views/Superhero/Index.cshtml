@@ -13,9 +13,13 @@
 @foreach (var super in Model)
 {
     <p>
-    <a asp-action="Details" asp-route-id="@super.Id">@super.Name</a>
-    <a asp-action="Edit" asp-route-id="@super.Id">Edit</a> |
-    <a asp-action="Delete" asp-route-id="@super.Id">Delete</a> <br />
-     </p>
-
+        <a asp-action="Details" asp-route-id="@super.Id">@super.Name</a>
+        <a asp-action="Edit" asp-route-id="@super.Id">Edit</a> |
+        <a asp-action="Delete" asp-route-id="@super.Id">Delete</a> <br />
+    </p>
 }
+
+<figure>
+    <img class="img-fluid" src="~/images/greenlantern.jpg" alt="Green Lantern" />
+    <figcaption class="figure-caption">The Greatest Superhero</figcaption>
+</figure>
