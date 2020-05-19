@@ -33,19 +33,21 @@ namespace Superheroes.Controllers
         // GET: Superhero/Create
         public ActionResult Create()
         {
-            return View();
+            Superhero super = new Superhero();
+            return View(super);
         }
 
         // POST: Superhero/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        
+        public ActionResult Create(Superhero superhero)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
+                _context.Superheroes.Add(superhero);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
             }
             catch
             {
